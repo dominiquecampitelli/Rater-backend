@@ -7,9 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "tsx watch src/server.ts",
-    "postinstall": "prisma generate",
-    "build": "prisma generate && <actual-build-command>",
-    "vercel-build": "npx prisma migrate deploy"
+    "vercel-build": "npx prisma generate && npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
