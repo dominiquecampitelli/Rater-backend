@@ -4,6 +4,7 @@ import {
   FastifyRequest,
   FastifyReply,
 } from "fastify";
+import auth from "./middleware/auth";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { ListUsersController } from "./controllers/ListUsersController";
 import { DeleteUserController } from "./controllers/DeleteUserController";
@@ -29,6 +30,7 @@ export async function routes(
 
   fastify.get(
     "/users",
+    { preHandler: [auth] },
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new ListUsersController().handle(request, reply);
     }
